@@ -8,6 +8,12 @@ set -euo pipefail
 # Definiranje direktorija skripte
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# Detekcija korisničkih foldera (radi bez obzira na jezik sustava)
+PICTURES_DIR=$(xdg-user-dir PICTURES)
+DOCUMENTS_DIR=$(xdg-user-dir DOCUMENTS)
+echo "INFO: Pictures → $PICTURES_DIR"
+echo "INFO: Documents → $DOCUMENTS_DIR"
+
 echo "====================================================="
 echo "     POSTINSTALL STARTED (Fedora COSMIC)"
 echo "====================================================="
@@ -157,7 +163,7 @@ fi
 echo "[10] Installing wallpapers..."
 
 WALLPAPER_SOURCE_DIR="$REPO_DIR/wallpapers"
-TARGET_DIR="$HOME/Pictures/Wallpaper"
+TARGET_DIR="$PICTURES_DIR/Wallpaper"
 TARGET_FILE="$TARGET_DIR/jutro 4K.jpg"
 WALLPAPER_URI="file://$TARGET_FILE"
 
@@ -192,9 +198,34 @@ echo " → Running install_rbenv.sh"
 bash "$REPO_DIR/languages/install_rbenv.sh"
 
 # -------------------------------------------------------
-# 12) FINAL CLEANUP
+# 12) CONFIGURE ZSH (conda + rbenv PATH)
 # -------------------------------------------------------
-echo "[12] Final cleanup..."
+echo "[12] Configuring zsh for conda and rbenv..."
+
+ZSHRC="$HOME/.zshrc"
+
+# rbenv
+if ! grep -q 'rbenv' "$ZSHRC" 2>/dev/null; then
+cat >> "$ZSHRC" << 'EOF'
+
+# rbenv
+export RBENV_ROOT="$HOME/.rbenv"
+export PATH="$RBENV_ROOT/bin:$PATH"
+eval "$(rbenv init -)"
+EOF
+fi
+
+# conda
+DOCUMENTS_DIR=$(xdg-user-dir DOCUMENTS)
+CONDA_PATH="$DOCUMENTS_DIR/anaconda3"
+if [ -f "$CONDA_PATH/bin/conda" ] && ! grep -q 'anaconda3' "$ZSHRC" 2>/dev/null; then
+    "$CONDA_PATH/bin/conda" init zsh
+fi
+
+# -------------------------------------------------------
+# 13) FINAL CLEANUP
+# -------------------------------------------------------
+echo "[13] Final cleanup..."
 sudo dnf autoremove -y
 flatpak uninstall --unused -y || true
 
