@@ -17,7 +17,7 @@ echo "====================================================="
 # 1) Ensure base dependencies
 # -------------------------------------------------------
 echo "[1] Installing base prerequisites..."
-sudo dnf install -y software-properties-common ca-certificates curl wget gnupg git
+sudo dnf install -y ca-certificates curl wget gnupg2 git
 
 
 # -------------------------------------------------------
