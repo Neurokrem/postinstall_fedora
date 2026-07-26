@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/neurokrem/Slike/Slike/Wallpaper/Crtani/jutro.jpg"
+let background = "#03142D"
+let foreground = "#d7d2ce"
+let cursor     = "#d7d2ce"
+
+" Colors
+let color0  = "#03142D"
+let color1  = "#ECB079"
+let color2  = "#1F6E8B"
+let color3  = "#5E7089"
+let color4  = "#2D94A7"
+let color5  = "#5AA5B1"
+let color6  = "#58BDC8"
+let color7  = "#d7d2ce"
+let color8  = "#969390"
+let color9  = "#ECB079"
+let color10 = "#1F6E8B"
+let color11 = "#5E7089"
+let color12 = "#2D94A7"
+let color13 = "#5AA5B1"
+let color14 = "#58BDC8"
+let color15 = "#d7d2ce"
