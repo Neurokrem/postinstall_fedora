@@ -1,0 +1,17 @@
+[
+    (
+        output: (
+            name: "DP-2",
+            edid: Some((
+                manufacturer: ('G', 'B', 'T'),
+                product: 10240,
+                serial: Some(16843009),
+                manufacture_week: 10,
+                manufacture_year: 2022,
+                model_year: None,
+            )),
+        ),
+        tiling_enabled: true,
+        id: Some("232f9b"),
+    ),
+]

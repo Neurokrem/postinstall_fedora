@@ -1,0 +1,29 @@
+[
+    Home,
+    Documents,
+    Downloads,
+    Music,
+    Pictures,
+    Videos,
+    Path("/home/neurokrem/MEGA"),
+    Network(
+        uri: "smb://169.254.8.212/public/Glazba",
+        name: "Glazba",
+        path: "/run/user/1000/gvfs/smb-share:server=169.254.8.212,share=public/Glazba",
+    ),
+    Network(
+        uri: "smb://naselje.local/public/Filmovi,%20serije,%20animirani/ANIMIRANI",
+        name: "ANIMIRANI",
+        path: "/run/user/1000/gvfs/smb-share:server=naselje.local,share=public/Filmovi, serije, animirani/ANIMIRANI",
+    ),
+    Network(
+        uri: "smb://naselje.local/public/Filmovi,%20serije,%20animirani/FILMOVI",
+        name: "FILMOVI",
+        path: "/run/user/1000/gvfs/smb-share:server=naselje.local,share=public/Filmovi, serije, animirani/FILMOVI",
+    ),
+    Network(
+        uri: "smb://naselje.local/public/Filmovi,%20serije,%20animirani/SERIJE",
+        name: "SERIJE",
+        path: "/run/user/1000/gvfs/smb-share:server=naselje.local,share=public/Filmovi, serije, animirani/SERIJE",
+    ),
+]
