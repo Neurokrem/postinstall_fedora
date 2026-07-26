@@ -17,14 +17,12 @@ sudo dnf install -y \
   mesa-libGL \
   mesa-vulkan-drivers \
   mokutil \
-  nautilus \
   ncdu \
   nmap \
   p7zip \
   p7zip-plugins \
   plocate \
   python3-pip \
-  remmina \
   rsyslog \
   steam \
   timeshift \
